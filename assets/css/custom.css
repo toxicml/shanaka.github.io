@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;   /* ensures text and photo are vertically aligned */
   justify-content: center;
-  gap: 3rem;             /* space between text and photo */
+  gap: 4rem;             /* space between text and photo */
   flex-wrap: wrap;       /* stacks nicely on smaller screens */
   text-align: left;
 }
@@ -11,12 +11,20 @@
 #banner.hero-split .major{ max-width:720px; }
 
 /* round profile image */
-#banner .avatar img{
-  width:400px; height:400px; object-fit:cover;
-  border-radius:50%;
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
-  border:3px solid rgba(255,255,255,.35);
+#banner .avatar {
+  position: relative;
+  top: -30px;  /* adjust upward movement here */
 }
+
+#banner .avatar img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  border: 3px solid rgba(255,255,255,.35);
+}
+
 @media (max-width: 980px){
   #banner .avatar img{ width:160px; height:160px; }
 }
