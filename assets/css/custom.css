@@ -1,17 +1,18 @@
 /* === Custom hero split (keeps Spectral background) === */
-#banner.hero-split .inner{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:2.5rem;
-  flex-wrap:wrap;            /* stacks on mobile */
-  text-align:left;
+#banner.hero-split .inner {
+  display: flex;
+  align-items: center;   /* ensures text and photo are vertically aligned */
+  justify-content: center;
+  gap: 3rem;             /* space between text and photo */
+  flex-wrap: wrap;       /* stacks nicely on smaller screens */
+  text-align: left;
 }
+
 #banner.hero-split .major{ max-width:720px; }
 
 /* round profile image */
 #banner .avatar img{
-  width:220px; height:220px; object-fit:cover;
+  width:300px; height:300px; object-fit:cover;
   border-radius:50%;
   box-shadow:0 10px 30px rgba(0,0,0,.35);
   border:3px solid rgba(255,255,255,.35);
