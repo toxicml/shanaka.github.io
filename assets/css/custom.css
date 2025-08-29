@@ -13,7 +13,7 @@
 /* round profile image */
 #banner .avatar {
   position: relative;
-  top: -30px;  /* adjust upward movement here */
+  top: -50px;  /* adjust upward movement here */
 }
 
 #banner .avatar img {
