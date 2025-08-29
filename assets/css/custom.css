@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;   /* ensures text and photo are vertically aligned */
   justify-content: center;
-  gap: 4rem;             /* space between text and photo */
+  gap: 6rem;             /* space between text and photo */
   flex-wrap: wrap;       /* stacks nicely on smaller screens */
   text-align: left;
 }
