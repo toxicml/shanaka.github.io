@@ -12,7 +12,7 @@
 
 /* round profile image */
 #banner .avatar img{
-  width:300px; height:300px; object-fit:cover;
+  width:400px; height:400px; object-fit:cover;
   border-radius:50%;
   box-shadow:0 10px 30px rgba(0,0,0,.35);
   border:3px solid rgba(255,255,255,.35);
