@@ -1,0 +1,631 @@
+/* === Custom hero split (keeps Spectral background) ======================= */
+#banner.hero-split .inner {
+  display: flex;
+  align-items: center;      /* vertically align text & photo */
+  justify-content: center;
+  gap: 6rem;                /* space between text and photo */
+  flex-wrap: wrap;          /* allows stacking when needed */
+  text-align: left;
+}
+
+#banner.hero-split .major { 
+  max-width: 720px; 
+}
+
+/* --- Profile image ------------------------------------------------------- */
+#banner .avatar {
+  position: relative;
+  top: -50px;               /* nudge photo upward on wide screens */
+}
+
+#banner .avatar img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  border: 3px solid rgba(255,255,255,.35);
+}
+
+/* Optional: tighten heading spacing for long names */
+#banner .major h2 { line-height: 1.15; }
+
+/* ========================= Responsive tweaks ============================= */
+
+/* Laptop / large tablet range */
+@media (max-width: 1200px) {
+  #banner.hero-split .inner { gap: 3rem; }
+  #banner .avatar { top: -20px; }          /* softer nudge */
+  #banner .avatar img { width: 320px; height: 320px; }
+}
+
+/* Stack & center on narrower screens */
+@media (max-width: 900px) {
+  #banner.hero-split .inner {
+    flex-direction: column;  /* text above, photo below */
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  /* Make big name fit nicer on small widths */
+  #banner .major h2 { 
+    font-size: 2.2em; 
+    letter-spacing: 0.15em; 
+  }
+
+  #banner .major p { margin: 0.4em 0; }
+
+  /* reset the photo offset and shrink it */
+  #banner .avatar { top: 0; }
+  #banner .avatar img { width: 220px; height: 220px; }
+
+  /* center the buttons row */
+  #banner .actions { 
+    display: flex; 
+    justify-content: center; 
+  }
+}
+
+/* Phone fallback */
+@media (max-width: 480px) {
+  #banner .avatar img { width: 180px; height: 180px; }
+}
+
+/* ================== Project highlight (Section Two / spotlight) ========= */
+
+/* Section row */
+.wrapper.alt.style2 .spotlight {
+  display: flex;
+  align-items: stretch;       /* equal-height columns */
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 520px;          /* adjust as needed */
+}
+
+/* Media column */
+.wrapper.alt.style2 .spotlight .image {
+  flex: 1;
+  display: flex;
+  align-items: center;        /* center the video vertically */
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Video */
+.wrapper.alt.style2 .spotlight .image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* fills box, crops if needed */
+  object-position: center;    /* keep centered */
+  display: block;
+  border-radius: inherit;
+}
+
+/* Text column */
+.wrapper.alt.style2 .spotlight .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* vertical centering */
+  max-width: 900px;
+  line-height: 1.6;
+}
+
+/* Spread project text across column more naturally */
+.wrapper.alt.style2 .spotlight .content {
+  max-width: 1500px;
+  line-height: 1.7;
+  text-align: none;
+  margin: 0 auto;
+}
+
+/* === Reduced sizes ======================================================= */
+/* Main title (smaller) */
+.wrapper.alt.style2 .spotlight .content h2 {
+  font-size: 1.3em;           /* was 2.2em */
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+}
+
+/* Subtitle (single definition, smaller) */
+.wrapper.alt.style2 .spotlight .content h3 {
+  font-size: 0.9em;           /* was 1.2–1.3em */
+  font-weight: 500;
+  color: #cbd5e1;
+  margin-bottom: 1em;
+}
+
+/* Body text (smaller) */
+.wrapper.alt.style2 .spotlight .content p {
+  font-size: 0.95em;          /* was 1.1em */
+  line-height: 1.5           /* keep readable */
+  color: #e2e8f0;
+  max-width: none;
+  text-align: justify;
+}
+
+/* Larger highlighted paragraphs (keep modest) */
+.highlight-text {
+  font-size: 1em; 
+  line-height: 1.5;
+}
+
+/* Bold keywords pop with accent */
+.wrapper.alt.style2 .spotlight .content p b {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+/* Section background */
+.wrapper.alt.style2 {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+/* Optional: remove decorative stripe if theme adds one */
+.wrapper.alt.style2::after { display: none; }
+
+/* Stack on smaller screens */
+@media (max-width: 980px) {
+  .wrapper.alt.style2 .spotlight {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: unset;
+    gap: 1.5rem;
+  }
+  .wrapper.alt.style2 .spotlight .content {
+    max-width: 100%;
+  }
+}
+
+/* General button styling */
+.button,
+.actions .button {
+  font-size: 0.7em;          /* reduce font size */
+  padding: 0.4em 1.2em;      /* shrink box height & width */
+  letter-spacing: 0.1em;     /* tighter spacing */
+  font-weight: 600;
+  text-transform: uppercase;
+
+  border: 1.8px solid #ffffff;
+  border-radius: 4px;
+  display: inline-flex;      /* ensures text aligns properly */
+  justify-content: center;   /* center horizontally */
+  align-items: center;       /* center vertically */
+  text-align: center;
+}
+
+/* ==== Project Page Custom Overrides ==== */
+
+/* custom.css */
+
+/* ...your existing rules... */
+
+/* Fix: remove invalid text-align and missing semicolon */
+.wrapper.alt.style2 .spotlight .content {
+  max-width: 1500px;
+  line-height: 1.7;
+  margin: 0 auto;
+}
+
+.wrapper.alt.style2 .spotlight .content p {
+  font-size: 0.95em;
+  line-height: 1.5;        /* <-- add the missing semicolon */
+  color: #e2e8f0;
+  max-width: none;
+  text-align: justify;
+}
+
+/* Ensure the project page text spreads wide */
+.project-content {
+  max-width: 1600px;       /* wider than Spectral’s default container */
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* If Spectral’s .inner is still limiting width somewhere on your page,
+   this extra override guarantees full width on the project page */
+.project-page .inner {
+  max-width: 1600px;
+}
+
+/* =========================
+   Project page typography + rhythm
+   ========================= */
+   .project-page .project-content {
+    max-width: 1080px;        /* tighter measure for readability */
+    margin: 0 auto;
+    padding: 2.25rem 1.25rem; /* consistent outer padding */
+  }
+  
+  /* Consistent vertical rhythm for sections */
+  .project-page .project-content section {
+    margin: 2.25rem 0;        /* space between sections */
+  }
+  
+  /* Headings scale (Spectral-friendly) */
+  .project-page .project-content h3 {
+    font-size: 1.25rem;       /* ~20px */
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin: 0 0 .75rem 0;     /* tighten over paragraph */
+    color: #e5e7eb;           /* soft contrast on dark */
+  }
+  
+  /* Paragraphs */
+  .project-page .project-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: .8rem 0;          /* consistent p spacing */
+    color: #e2e8f0;
+  }
+  
+  /* Lists: consistent spacing + tidy bullets */
+  .project-page .project-content ul {
+    margin: .5rem 0 1.25rem;
+    padding-left: 1.25rem;    /* align bullets nicely */
+  }
+  .project-page .project-content li {
+    margin: .35rem 0;         /* equal rhythm per item */
+    line-height: 1.6;
+  }
+  
+  /* Two-column list on wide screens (auto wraps) */
+  @media (min-width: 1024px) {
+    #highlights ul, #skills ul {
+      columns: 2;
+      column-gap: 2rem;
+    }
+    #highlights li, #skills li {
+      break-inside: avoid;
+    }
+  }
+  
+  /* Media: responsive and consistent spacing */
+  .project-page .project-content img.responsive-img,
+  .project-page .project-content video.responsive-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin: .75rem 0 1.25rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  }
+  
+  /* Buttons row: spacing + wrap nicely on mobile */
+  .project-page .actions {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+    margin-top: .6rem;
+  }
+  .project-page .actions .button {
+    font-size: .85rem;
+    padding: .55rem 1.1rem;
+    border: 2px solid rgba(255,255,255,.9);
+    border-radius: 10px;
+    text-transform: none;      /* cleaner than shouting */
+    letter-spacing: .02em;
+  }
+  
+  /* Subtle hover for buttons */
+  .project-page .actions .button:hover {
+    background: rgba(255,255,255,.08);
+  }
+  
+  /* Section separators (optional; remove if you prefer super-minimal) */
+  .project-page .project-content section + section {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 1.75rem;
+  }
+  
+  /* Header: tighten title and subtitle spacing */
+  .project-header h1 {
+    font-size: clamp(1.8rem, 2.2vw + 1.2rem, 2.6rem);
+    letter-spacing: .08em;
+    margin: 0 0 .25rem 0;
+  }
+  .project-header h2 {
+    font-size: clamp(1rem, .7vw + .8rem, 1.2rem);
+    font-weight: 500;
+    color: #94a3b8;
+    margin: 0 0 1.25rem 0;
+  }
+  
+  /* Footer button spacing */
+  .project-footer {
+    margin: 2.5rem 0 1rem;
+    text-align: center;
+  }
+  .project-footer .button {
+    font-size: .9rem;
+    padding: .55rem 1.2rem;
+    border-radius: 10px;
+  }
+  
+  /* Make long list items more readable on small devices */
+  @media (max-width: 640px) {
+    .project-page .project-content {
+      padding: 1.5rem 1rem;
+    }
+    #highlights ul, #skills ul {
+      columns: 1;             /* single column on phones */
+    }
+  }
+  
+/* =========================
+   Elegant dark theme for project page
+   Palette:
+   - bg:        #0b1220
+   - panel:     #0f172a
+   - text:      #e5e7eb
+   - muted:     #a0aec0
+   - accent:    #38bdf8  (cyan)
+   - accent-2:  #a78bfa  (violet)
+   ========================= */
+
+   .project-page {
+    background: radial-gradient(1200px 800px at 20% -10%, rgba(56,189,248,.12), transparent 60%),
+                radial-gradient(1000px 700px at 120% 10%, rgba(167,139,250,.10), transparent 60%),
+                #0b1220; /* base */
+    color: #e5e7eb;
+  }
+  
+  /* Container + panels */
+  .project-page .project-content {
+    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+    border: 1px solid rgba(148,163,184,.12);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(2,6,23,.35);
+  }
+  
+  /* Header polish */
+  .project-header {
+    text-align: center;
+    padding: 1.5rem 1rem 0;
+  }
+  .project-header h1 {
+    color: #e5e7eb;
+    background: linear-gradient(90deg, #e5e7eb, #cbd5e1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .project-header h2 {
+    color: #a0aec0;
+  }
+  
+  /* Headings inside content */
+  .project-page .project-content h3 {
+    color: #e5e7eb;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: .75rem;
+    position: relative;
+  }
+  .project-page .project-content h3::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 2px;
+    margin-top: .4rem;
+    background: linear-gradient(90deg, #38bdf8, #a78bfa);
+    border-radius: 2px;
+  }
+  
+  /* Body text */
+  .project-page .project-content p {
+    color: #e2e8f0;
+  }
+  .project-page .project-content b {
+    color: #38bdf8; /* subtle accent for keywords */
+    font-weight: 600;
+  }
+  
+  /* Lists: custom markers + better rhythm */
+  .project-page .project-content ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .project-page .project-content li {
+    position: relative;
+    padding-left: 1.3rem;
+    margin: .35rem 0;
+  }
+  .project-page .project-content li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .6em;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #38bdf8);
+    box-shadow: 0 0 0 3px rgba(56,189,248,.18);
+  }
+  
+  /* Two-column lists on wide screens */
+  @media (min-width: 1024px) {
+    #highlights ul, #skills ul {
+      columns: 2;
+      column-gap: 2rem;
+    }
+    #highlights li, #skills li { break-inside: avoid; }
+  }
+  
+  /* Media: consistent styling */
+  .project-page .project-content img.responsive-img,
+  .project-page .project-content video.responsive-video {
+    border-radius: 12px;
+    border: 1px solid rgba(148,163,184,.18);
+    box-shadow: 0 16px 36px rgba(2,6,23,.45);
+  }
+  
+  /* Button styling: primary + secondary */
+  .project-page .actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .9rem; }
+  
+  .project-page .button {
+    --btn-bg: rgba(56,189,248,.12);
+    --btn-bd: rgba(56,189,248,.55);
+    --btn-fg: #e8f7fe;
+  
+    background: linear-gradient(180deg, var(--btn-bg), rgba(56,189,248,.06));
+    color: var(--btn-fg);
+    border: 1.6px solid var(--btn-bd);
+    border-radius: 12px;
+    padding: .6rem 1.1rem;
+    font-size: .92rem;
+    letter-spacing: .02em;
+    text-transform: none;
+    transition: transform .08s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    backdrop-filter: blur(2px);
+  }
+  .project-page .button:hover {
+    border-color: #38bdf8;
+    box-shadow: 0 10px 24px rgba(56,189,248,.25);
+    transform: translateY(-1px);
+  }
+  .project-page .button:active { transform: translateY(0); }
+  
+  /* A softer, “ghost” variant for secondary actions (use class="button ghost") */
+  .project-page .button.ghost {
+    --btn-bg: rgba(167,139,250,.10);
+    --btn-bd: rgba(167,139,250,.45);
+    --btn-fg: #f0eafe;
+  }
+  
+  /* Footer button match */
+  .project-footer .button {
+    border-radius: 12px;
+    --btn-bg: rgba(167,139,250,.10);
+    --btn-bd: rgba(167,139,250,.45);
+    --btn-fg: #f0eafe;
+  }
+  
+  /* Focus visibility for accessibility */
+  .project-page a.button:focus-visible {
+    outline: 3px solid #38bdf8;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(56,189,248,.20);
+  }
+  
+  /* Section separators, subtler on dark */
+  .project-page .project-content section + section {
+    border-top: 1px solid rgba(148,163,184,.10);
+    padding-top: 1.75rem;
+  }
+  
+  /* Mobile tweaks */
+  @media (max-width: 640px) {
+    .project-page .project-content { padding: 1.5rem 1rem; }
+    .project-header h1 { letter-spacing: .06em; }
+  }
+ 
+  /* Gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.3);
+}
+.gallery-grid figcaption {
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.4rem;
+  color: #cbd5e1;
+}
+
+/* Hero section: keep the picture modest */
+#hero-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem 1rem;
+}
+
+#hero-image .responsive-img {
+  /* override Spectral's width:100% */
+  width: auto !important;
+  max-width: min(2000px, 85%) !important; /* pick your cap */
+  max-height: 800px !important;          /* and your height cap */
+  height: auto !important;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  display: block;
+  margin: 0 auto;
+}
+
+#hero-image .caption {
+  text-align: center;
+  margin-top: .6rem;
+  font-size: 0.9rem;
+  color: #a0aec0;
+}
+
+/* ===== Gallery Slider ===== */
+.gallery-slider {
+  position: relative;
+  max-width: 700px;
+  margin: 1rem auto;
+  overflow: hidden;
+}
+
+.gallery-slider .slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.gallery-slider figure {
+  min-width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.gallery-slider img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+
+.gallery-slider figcaption {
+  margin-top: .5rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+/* Arrows */
+.gallery-slider .prev,
+.gallery-slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 1.8rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 2;
+}
+.gallery-slider .prev:hover,
+.gallery-slider .next:hover {
+  background: rgba(0,0,0,0.7);
+}
+.gallery-slider .prev { left: 10px; }
+.gallery-slider .next { right: 10px; }
+

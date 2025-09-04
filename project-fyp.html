@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autonomous Mobile Robotic Manipulator</title>
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+  <!-- Share card meta (optional but nice) -->
+  <meta property="og:title" content="Autonomous Mobile Robotic Manipulator — Smart Agriculture">
+  <meta property="og:description" content="RGB–NIR plant health detection, integrated scan-cycle spraying, ROS 2 navigation, and a dual-nozzle gimbal for full-leaf coverage.">
+  <meta property="og:image" content="images/hero-robot.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Small overrides so this page looks perfect even if custom.css misses them -->
+  <style>
+    /* Hero image: modest, centered */
+    #hero-image { display:flex; flex-direction:column; align-items:center; padding:0 1rem 1rem; }
+    #hero-image .responsive-img{
+      width:auto !important;
+      max-width:min(900px,85%) !important;
+      max-height:380px !important;
+      height:auto !important;
+      object-fit:contain;
+      border-radius:12px;
+      box-shadow:0 8px 24px rgba(0,0,0,.35);
+      display:block; margin:0 auto;
+    }
+
+    /* Video aspect ratio guard */
+    #demo .responsive-video{ width:100%; height:auto; aspect-ratio:16/9; }
+
+    /* Gallery slider */
+    .gallery-slider{ position:relative; max-width:900px; margin:1rem auto; overflow:hidden; }
+    .gallery-slider .slides{ display:flex; transition:transform .5s ease-in-out; will-change:transform; }
+    .gallery-slider figure{ min-width:100%; margin:0; display:flex; align-items:center; justify-content:center; aspect-ratio:16/9; }
+    .gallery-slider img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,.35); }
+    .gallery-slider .prev,.gallery-slider .next{
+      position:absolute; top:50%; transform:translateY(-50%);
+      background:rgba(0,0,0,.5); color:#fff; border:0; font-size:1.8rem;
+      line-height:1; padding:.35rem .7rem; border-radius:50%; cursor:pointer; z-index:2;
+    }
+    .gallery-slider .prev:hover,.gallery-slider .next:hover{ background:rgba(0,0,0,.7); }
+    .gallery-slider .prev{ left:12px; } .gallery-slider .next{ right:12px; }
+
+    /* Respect users who prefer less motion */
+    @media (prefers-reduced-motion: reduce){
+      .gallery-slider .slides{ transition:none !important; }
+    }
+  </style>
+</head>
+
+<body class="project-page">
+
+  <!-- Header / Title -->
+  <header class="project-header">
+    <h1>Autonomous Mobile Robotic Manipulator</h1>
+    <h2>For Smart Agriculture in Sri Lankan Polytunnels</h2>
+  </header>
+
+  <!-- Hero Image -->
+  <section id="hero-image" aria-label="Project hero image">
+    <img src="images/hero-robot.jpg"
+         alt="Prototype of the autonomous manipulator in field trials"
+         class="responsive-img">
+  </section>
+
+  <main class="project-content">
+
+    <!-- Overview -->
+    <section id="overview">
+      <h3>Overview</h3>
+      <p>
+        This project focuses on the Design and Development of a Multi-functional Autonomous Mobile Robotic Manipulator for Smart Agriculture. The goal was to address challenges in Sri Lanka such as labor scarcity, inefficient disease management, and limited access to modern technology. The robot targets a high-value crop, Muriya F1 Capsicum, cultivated in polytunnels.
+      </p>
+
+      <p>
+        The system combines three modules. A mobile ground platform enables autonomous navigation across uneven terrain. A 3-DoF Cartesian manipulator provides vertical and horizontal reach to work within the canopy. A 2-DoF gimbal-mounted end effector handles precise tasks such as targeted spraying and localized inspection.
+      </p>
+
+      <p>
+        Capabilities include disease and stress detection using RGB and NIR imaging with vegetation indices, selective treatment via a precision sprayer to reduce chemical use, and simple intra-field transport tasks. The prototype was validated in simulation and physical tests, showing coordinated navigation and actuation and providing a scalable base for future multi-crop extensions.
+      </p>
+
+      <!-- Call-to-action -->
+      <div class="actions">
+        <a class="button" href="assets/docs/fyp-presentation.pdf" download>
+          Download Presentation (PDF)
+        </a>
+        <a class="button ghost" href="assets/docs/fyp-report.pdf" target="_blank" rel="noopener">
+          Read Full Report
+        </a>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section id="highlights" aria-label="Project Highlights">
+      <h3>Highlights</h3>
+      <ul>
+        <li>Operates under plant canopies in narrow polytunnel rows with coordinated base, arm and gimbal motion</li>
+        <li>Provides row level navigation with waypointing and repeat routines for reliable coverage</li>
+        <li>Adapts speed with pause, resume and safe stop features</li>
+        <li>Uses RGB and NIR vision with NDVI and machine learning for plant stress and disease detection</li>
+        <li>Combines detection and spraying within each scan cycle for efficient treatment</li>
+        <li>Dual nozzle gimbal delivers adjustable cone sprays and upward jets for full leaf coverage including undersides</li>
+        <li>Runs on a battery powered system with BMS and fused distribution monitored in the operator GUI</li>
+        <li>Operator dashboard provides telemetry, alerts and spray event logging</li>
+        <li>Modular design allows extensions such as towing and data management</li>
+        <li>Validated through simulation and a full scale prototype</li>
+      </ul>
+    </section>
+
+    <!-- Poster -->
+    <section id="system-overview">
+      <h3>System Architecture</h3>
+      <img src="images/fyp-poster.jpg" alt="System overview poster and architecture" class="responsive-img" />
+    </section>
+
+    <!-- Demo Video -->
+    <section id="demo">
+      <h3>Demo Video</h3>
+      <video controls class="responsive-video">
+        <source src="videos/fyp-demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h3>Skills Involved</h3>
+      <ul>
+        <li>ROS 2 Navigation, SLAM Toolbox, Nav2</li>
+        <li>C++ and Python for embedded control</li>
+        <li>Motion planning and control algorithms</li>
+        <li>LIDAR and RGB–NIR vision with NDVI</li>
+        <li>Gazebo and RViz simulation</li>
+        <li>Modeling and validation in MATLAB/Simulink</li>
+        <li>Electronics integration (Battery, BMS)</li>
+        <li>Wireless communication and debugging</li>
+      </ul>
+    </section>
+
+    <!-- Gallery (slider) -->
+    <section id="gallery" aria-label="Project Gallery" tabindex="0">
+      <h3>Gallery</h3>
+      <div class="gallery-slider">
+        <button class="prev" aria-label="Previous image">&#10094;</button>
+        <div class="slides">
+          <figure><img loading="lazy" src="images/gallery1.jpg"  alt="CAD model of chassis frame"></figure>
+          <figure><img loading="lazy" src="images/gallery2.jpg"  alt="Gazebo simulation of robot"></figure>
+          <figure><img loading="lazy" src="images/gallery3.jpg"  alt="Field trials in polytunnel"></figure>
+          <figure><img loading="lazy" src="images/gallery4.jpg"  alt="Manipulator CAD views"></figure>
+          <figure><img loading="lazy" src="images/gallery5.jpg"  alt="NDVI visualization from RGB and NIR"></figure>
+          <figure><img loading="lazy" src="images/gallery6.jpg"  alt="Gimbal sprayer close up"></figure>
+          <figure><img loading="lazy" src="images/gallery7.jpg"  alt="Electronics and BMS integration"></figure>
+          <figure><img loading="lazy" src="images/gallery8.jpg"  alt="Operator GUI screenshot"></figure>
+          <figure><img loading="lazy" src="images/gallery9.jpg"  alt="Autonomous test run"></figure>
+          <figure><img loading="lazy" src="images/gallery10.jpg" alt="Team with prototype"></figure>
+          <figure><img loading="lazy" src="images/gallery11.jpg" alt="Team with prototype"></figure>
+          <figure><img loading="lazy" src="images/gallery12.jpg" alt="Team with prototype"></figure>
+          <figure><img loading="lazy" src="images/gallery13.png" alt="Team with prototype"></figure>
+        
+          <!-- add more <figure> items as needed -->
+        </div>
+        <button class="next" aria-label="Next image">&#10095;</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="project-footer">
+    <a href="index.html" class="button">← Back to Home</a>
+  </footer>
+
+  <!-- Gallery slider script -->
+  <script>
+    (function(){
+      const gallery = document.querySelector('#gallery');
+      const slides  = gallery.querySelector('.slides');
+      const items   = Array.from(slides.children);
+      const nextBtn = gallery.querySelector('.next');
+      const prevBtn = gallery.querySelector('.prev');
+      let index = 0;
+
+      function go(i){
+        index = (i + items.length) % items.length;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      nextBtn.addEventListener('click', () => go(index + 1));
+      prevBtn.addEventListener('click', () => go(index - 1));
+
+      // Keyboard navigation
+      gallery.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') go(index + 1);
+        if (e.key === 'ArrowLeft')  go(index - 1);
+      });
+
+      // Touch swipe
+      let startX = null;
+      slides.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+      slides.addEventListener('touchend',   e => {
+        if (startX == null) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+        startX = null;
+      });
+
+      // Respect reduced motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        slides.style.transition = 'none';
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Spectral by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">Shanaka</a></h1>
+						<nav id="nav">
+							<ul>
+								<!--<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="generic.html">Generic</a></li>
+											<li><a href="elements.html">Elements</a></li>
+											<li><a href="#">Sign Up</a></li>
+											<li><a href="#">Log In</a></li>
+										</ul>
+									</div>
+								</li> -->
+							</ul>
+						</nav>
+					</header>
+
+
+<section id="banner" class="hero-split">
+  <div class="inner">
+    <header class="major">
+      <h2>Shanaka Dasanayaka</h2>
+      <p> Mechatronic Engineering Graduate <br> University of Moratuwa </p>
+      <ul class="actions">
+        <li><a href="#projects" class="button special scrolly">View Projects</a></li>
+        <li><a href="assets/Shanaka_CV.pdf" class="button" target="_blank">Download CV</a></li>
+      </ul>
+    </header>
+
+    <span class="avatar">
+      <img src="images/shanaka.png" alt="Shanaka profile photo">
+    </span>
+  </div>
+
+  <a href="#projects" class="more scrolly">View Projects</a>
+</section>
+
+<!-- Project Highlights -->
+<section id="projects" class="wrapper alt style2">
+
+	<!-- Project 1: Agri robot (video left, text right) -->
+	<section class="spotlight">
+	  <div class="image">
+		<video autoplay muted loop playsinline preload="metadata" poster="images/fyp-thumb.jpg">
+		  <source src="videos/video1.mp4" type="video/mp4">
+		  Your browser does not support the video tag.
+		</video>
+	  </div>
+	  <div class="content">
+		<h2>Autonomous Mobile Robotic Manipulator</h2>
+		<h3>for Smart Agriculture in Sri Lankan Polytunnels</h3>
+		<p class="highlight-text">
+		  A multifunctional autonomous platform that couples a <b>mobile base with suspension</b>, a
+		  <b>3-DoF Cartesian manipulator</b>, and a <b>2-DoF gimbal end effector</b> for targeted detection and treatment. RGB-NIR sensing with NDVI and classical ML drives selective spraying via a <b>dual-nozzle system</b>.
+		</p>
+
+		<ul class="actions">
+		  <li><a href="project-fyp.html" class="button">View Full Project</a></li>
+		</ul>
+	  </div>
+	</section>
+  
+	<!-- Project 2: Warehouse mobile manipulator (text left, video right) -->
+	<section class="spotlight">
+	  <div class="content">
+		<h2>Mobile Manipulator for Logistics & Warehousing</h2>
+		<h3>omnidirectional base, 4-DoF arm, depth perception</h3>
+		<p class="highlight-text">
+		  A compact warehouse robot integrating a <b>mecanum-drive base</b>, a <b>4-DoF arm</b> with ~0.5&nbsp;m³ workspace and
+		  <b>2&nbsp;kg payload</b>, and depth-aware perception for autonomous pick-and-place.
+		</p>
+		<p class="highlight-text">
+		  The design includes kinematic modeling, torque sizing, <b>topology-optimized links</b>, SLAM-ready sensing, and a
+		  web/mobile UI for teleop and monitoring.
+		</p>
+		<ul class="actions">
+		  <li><a href="project-warehouse.html" class="button">View Full Project</a></li>
+		</ul>
+	  </div>
+	  <div class="image">
+		<video autoplay muted loop playsinline preload="metadata" poster="images/warehouse-thumb.jpg">
+		  <source src="videos/video2.mp4" type="video/mp4">
+		  Your browser does not support the video tag.
+		</video>
+	  </div>
+	</section>
+
+	<!-- Project 2: Intelligent Road-Sign Line-Following Robot (text left, video right) -->
+<section class="spotlight">
+	<div class="content">
+	  <h2>Intelligent Road-Sign Line-Following Robot</h2>
+	  <h3>PID line following, road-sign AI, obstacle handling</h3>
+  
+	  <p class="highlight-text">
+		A compact robot that follows a black line with an 8-sensor PID controller, reads road signs,
+		and makes junction decisions based on ordered sign positions. A mobile app selects destination
+		and modes (manual, line follow, obstacle handling), while the robot adapts speed to limit signs.
+	  </p>
+	  <p class="highlight-text">
+		Vision runs two parallel paths: OCR on red circular ROIs for speed signs (20, 100), and a
+		lightweight Random-Forest classifier (HOG+HSV) for symbolic signs (BUS STOP, P, TRAIN). Results are
+		fused to trigger stops, pauses, and turn choices at the 4-way junction. 
+	  </p>
+  
+	  <ul class="actions">
+		<li><a href="project-roadbot.html" class="button">View Full Project</a></li>
+	  </ul>
+	</div>
+  
+	<div class="image">
+	  <video autoplay muted loop playsinline preload="metadata" poster="images/roadbot-thumb.jpg">
+		<source src="videos/video3.mp4" type="video/mp4" />
+		Your browser does not support the video tag.
+	  </video>
+	</div>
+  </section>
+
+  <!-- Project Highlight 2 (auto-alternates to video on the right) -->
+<section class="spotlight">
+	<div class="content">
+	  <h2>MEMS Single-Cell Injection Platform</h2>
+	  <h3>Monolithic injector + microgripper with force feedback</h3>
+  
+	  <p class="highlight-text">
+		A compact MEMS platform that integrates an electrostatic comb-drive injector,
+		a dual-arm microgripper, and embedded piezoresistive force sensing for precise,
+		force-regulated single-cell manipulation. Stroke exceeds 5&nbsp;µm with biologically
+		safe injecting forces and high dynamic stability.
+	  </p>
+  
+	  <ul class="actions">
+		<li><a href="project-mems.html" class="button">View Full Project</a></li>
+	  </ul>
+	</div>
+  
+	<div class="image">
+	  <video autoplay muted loop playsinline preload="metadata" poster="images/mems-thumb.jpg">
+		<source src="videos/video4.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	  </video>
+	</div>
+  </section>
+  
+  
+  </section>
+  
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+
+
+
+	
+</html>
+
+
+
+
+
+
