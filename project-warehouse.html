@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile Manipulator for Logistics & Warehousing</title>
+
+  <!-- Meta -->
+  <meta name="description" content="Mecanum-drive mobile manipulator with 4-DoF arm, depth perception, topology-optimized links, and teleop UI for autonomous pick-and-place in warehouses." />
+  <meta property="og:title" content="Mobile Manipulator for Logistics & Warehousing" />
+  <meta property="og:description" content="Omnidirectional base, 4-DoF arm (≈0.5 m³ workspace, 2 kg payload), depth perception, topology optimization, and web/mobile teleoperation." />
+  <meta property="og:image" content="images/warehouse-hero.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+  <!-- Dark theme (consistent with VEXEL) -->
+  <style>
+    :root {
+      --bg: #0b0f14;          /* Dark navy background */
+      --ink: #f9fafb;         /* Light text */
+      --muted: #9ca3af;       /* Muted gray */
+      --accent: #10b981;      /* Teal/green accent */
+      --accent-soft: #1e293b; /* Soft slate */
+      --line: #1f2937;        /* Divider line */
+    }
+    body.project-page { color: var(--ink); background: var(--bg); font-family: system-ui, sans-serif; }
+
+    /* Header */
+    .project-header { max-width: 1100px; margin: 24px auto 8px; padding: 0 16px; text-align: center; }
+    .project-header h1 { margin: .2rem 0; font-size: 2rem; line-height: 1.2; color: var(--ink); }
+    .project-header h2 { margin: .25rem 0 0; color: var(--muted); font-weight: 500; font-size: 1.06rem; }
+
+    /* Sticky nav */
+    .top-nav { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px 0; }
+    .top-nav .inner { max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .top-nav a { display: inline-block; padding: .42rem .75rem; border: 1px solid var(--accent-soft); border-radius: 999px; color: var(--ink); text-decoration: none; font-weight: 600; font-size: .92rem; background: transparent; transition: all .15s ease; }
+    .top-nav a:hover { background: var(--accent-soft); }
+    .top-nav a.is-active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* Content shells */
+    .project-content { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+    .project-content section { margin: 28px 0; }
+    .project-content h3 { margin: 0 0 .6rem; color: var(--accent); }
+
+    /* Top gallery (merged hero + gallery) */
+    .gallery-slider { position: relative; max-width: 1100px; margin: 0 auto 20px; overflow: hidden; padding: 0 16px; }
+    .gallery-slider .slides { display: flex; transition: transform .5s ease-in-out; will-change: transform; }
+    .gallery-slider figure { min-width: 100%; margin: 0; display: flex; align-items: center; justify-content: center; aspect-ratio: 16/9; }
+    .gallery-slider img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.5); }
+    .gallery-slider .prev,.gallery-slider .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,.6); color: #fff; border: 0; font-size: 1.8rem; line-height: 1; padding: .35rem .7rem; border-radius: 50%; cursor: pointer; z-index: 2; }
+    .gallery-slider .prev:hover,.gallery-slider .next:hover { background: rgba(0,0,0,.85); }
+    .gallery-slider .prev { left: 28px; } .gallery-slider .next { right: 28px; }
+
+    /* Video */
+    #demo .responsive-video { width: 100%; height: auto; aspect-ratio: 16/9; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,.5); }
+
+    /* Skills list */
+    #skills ul { padding-left: 18px; }
+    #skills li { margin: .42rem 0; }
+
+    /* Buttons */
+    .btn-primary{
+      display:inline-flex;align-items:center;gap:.55rem;padding:.7rem 1rem;border-radius:12px;color:#fff;text-decoration:none;font-weight:700;
+      background:linear-gradient(135deg,rgba(16,185,129,.35),rgba(16,185,129,.15));
+      border:1px solid rgba(16,185,129,.65); box-shadow:0 10px 24px rgba(0,0,0,.35);
+      transition:transform .12s ease, filter .12s ease, box-shadow .12s ease;
+    }
+    .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 14px 28px rgba(0,0,0,.45)}
+    .arrow{font-size:1.05rem;line-height:1}
+
+    /* Footer + back button */
+    .project-footer{ text-align:center; margin:36px 0 48px; }
+    .btn-back{
+      display:inline-flex; align-items:center; gap:.55rem;
+      padding:.7rem 1rem; border-radius:12px;
+      color:#fff; text-decoration:none; font-weight:700;
+      background: linear-gradient(135deg, rgba(16,185,129,.28), rgba(16,185,129,.12));
+      border:1px solid rgba(16,185,129,.55);
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+    }
+    .btn-back:hover{ filter:brightness(1.06); transform:translateY(-1px); box-shadow:0 14px 28px rgba(0,0,0,.45); }
+    .btn-back:focus{ outline:2px solid rgba(16,185,129,.8); outline-offset:2px; }
+
+    @media (prefers-reduced-motion: reduce){
+      .gallery-slider .slides{ transition:none !important; }
+    }
+  </style>
+</head>
+
+<body class="project-page">
+
+  <!-- Header -->
+  <header class="project-header">
+    <h1>Mobile Manipulator for Logistics & Warehousing</h1>
+    <h2>Omnidirectional base · 4-DoF arm · Depth-aware perception</h2>
+  </header>
+
+  <!-- Nav -->
+  <nav class="top-nav" aria-label="Section navigation">
+    <div class="inner">
+      <a href="#gallery">Gallery</a>
+      <a href="#overview">Overview</a>
+      <a href="#demo">Demo</a>
+      <a href="#skills">Skills</a>
+      <a href="#presentation">Presentation</a>
+    </div>
+  </nav>
+
+  <!-- Top Gallery -->
+  <section id="gallery" aria-label="Project Gallery" tabindex="0" style="margin-top:0;">
+    <div class="gallery-slider">
+      <button class="prev" aria-label="Previous image">&#10094;</button>
+      <div class="slides">
+        <figure><img loading="eager" src="images/img1.jpg"></figure>
+        <figure><img loading="eager" src="images/img2.jpg"></figure>
+        <figure><img loading="eager" src="images/img3.jpg"></figure>
+        <figure><img loading="eager" src="images/img4.jpg"></figure>
+        <figure><img loading="eager" src="images/img5.jpg"></figure>
+        <figure><img loading="eager" src="images/img6.png"></figure>
+        <figure><img loading="eager" src="images/img7.png"></figure>
+      </div>
+      <button class="next" aria-label="Next image">&#10095;</button>
+    </div>
+  </section>
+
+  <main class="project-content">
+
+    <!-- Overview -->
+    <section id="overview" aria-label="Overview">
+      <h3>Overview</h3>
+      <p>
+        This project develops a compact <strong>warehouse mobile manipulator</strong> that combines an
+        <strong>omnidirectional mecanum-drive base</strong> with a <strong>4-DoF rotary arm</strong> for autonomous
+        pick-and-place in narrow aisles. The arm provides an effective workspace of approximately
+        <strong>0.5&nbsp;m³</strong> with a <strong>2&nbsp;kg</strong> payload, supported by detailed kinematic modeling,
+        workspace analysis, and motor torque sizing. Structural links were <strong>topology-optimized</strong> to increase
+        stiffness-to-weight ratio while meeting deflection and safety constraints.
+      </p>
+      <p>
+        Depth-aware perception enables object detection and grasp planning through calibrated cameras and
+        color/geometry-based filtering. The platform integrates <strong>IKPy</strong> for inverse kinematics and provides a
+        <strong>web/mobile UI</strong> for teleoperation and task monitoring. The validation process included simulation, benchtop actuation, and integrated prototype trials, demonstrating reliable manipulation and maneuverability for logistics workflows.
+      </p>
+    </section>
+
+    <!-- Demo -->
+    <section id="demo" aria-label="Demo Video">
+      <h3>Demo Video</h3>
+      <video controls preload="metadata" class="responsive-video" poster="images/warehouse-thumb.jpg">
+        <source src="videos/warehouse-demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" aria-label="Skills Involved">
+        <h3>Skills Involved</h3>
+        <ul>
+          <li>Kinematic modeling & analysis (forward/inverse kinematics of 4-DoF arm)</li>
+          <li>Workspace definition and validation (MATLAB; Peter Corke toolbox)</li>
+          <li>Motor torque estimation, topology optimization, and structural validation (SolidWorks, Adams, Ansys)</li>
+          <li>Mecanum kinematics & omnidirectional control</li>
+          <li>Depth perception & object detection (camera calibration, HSV/geometry filtering)</li>
+          <li>Inverse kinematics with IKPy for real-time manipulator control</li>
+          <li>Simulation and validation using Gazebo & RViz</li>
+          <li>Web/mobile applications for teleoperation & monitoring</li>
+          <li>Prototype fabrication with 3D printing and laser cutting</li>
+          <li>System integration: Raspberry Pi + Arduino-based control with camera & ultrasonic sensors</li>
+        </ul>
+      </section>
+      
+
+    <!-- Presentation (single button) -->
+    <section id="presentation" aria-label="Presentation">
+      <h3>Presentation</h3>
+      <p>
+        <a class="btn-primary" href="assets/docs/warehouse-presentation.pdf" target="_blank" rel="noopener">
+          <span class="arrow">↗</span> View Presentation (PDF)
+        </a>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="project-footer">
+    <a href="index.html" class="btn-back"><span class="arrow">←</span> Back to Home</a>
+  </footer>
+
+  <!-- Smooth scroll + nav highlight + gallery -->
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('.top-nav a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const t=document.querySelector(a.getAttribute('href'));
+        if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+
+    // Active nav highlight
+    (function(){
+      const links=[...document.querySelectorAll('.top-nav a')];
+      const map=new Map(links.map(a=>[a.getAttribute('href'),a]));
+      const io=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          const id='#'+entry.target.id;
+          const link=map.get(id);
+          if(entry.isIntersecting){
+            links.forEach(l=>l.classList.remove('is-active'));
+            if(link) link.classList.add('is-active');
+          }
+        });
+      },{rootMargin:'-40% 0px -55% 0px'});
+      document.querySelectorAll('main section[id], #gallery').forEach(s=>io.observe(s));
+    })();
+
+    // Gallery slider
+    (function(){
+      const gallery=document.querySelector('#gallery');
+      const slides=gallery.querySelector('.slides');
+      const items=Array.from(slides.children);
+      const nextBtn=gallery.querySelector('.next');
+      const prevBtn=gallery.querySelector('.prev');
+      let index=0;
+      function go(i){ index=(i+items.length)%items.length; slides.style.transform=`translateX(-${index*100}%)`; }
+      nextBtn.addEventListener('click',()=>go(index+1));
+      prevBtn.addEventListener('click',()=>go(index-1));
+      // Touch
+      let startX=null;
+      slides.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});
+      slides.addEventListener('touchend',e=>{
+        if(startX==null) return;
+        const dx=e.changedTouches[0].clientX-startX;
+        if(Math.abs(dx)>40) go(index+(dx<0?1:-1));
+        startX=null;
+      });
+    })();
+  </script>
+</body>
+</html>

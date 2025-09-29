@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VEXEL — Autonomous Mobile Robotic Manipulator</title>
+
+  <!-- Meta -->
+  <meta name="description" content="VEXEL: RGB–NIR plant health detection, targeted dual-nozzle spraying, ROS 2 autonomy, and a Cartesian manipulator for canopy access in polytunnels." />
+  <meta property="og:title" content="VEXEL — Autonomous Mobile Robotic Manipulator" />
+  <meta property="og:description" content="RGB–NIR plant health detection, integrated pause–detect–spray–resume cycles, ROS 2 navigation, and a dual-nozzle gimbal for full-leaf coverage." />
+  <meta property="og:image" content="images/hero-robot.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+  <!-- Refined dark theme palette -->
+  <style>
+    :root {
+      --bg: #0b0f14;          /* Dark navy background */
+      --ink: #f9fafb;         /* Light text */
+      --muted: #9ca3af;       /* Muted gray */
+      --accent: #10b981;      /* Teal/green accent */
+      --accent-soft: #1e293b; /* Soft slate */
+      --line: #1f2937;        /* Divider line */
+    }
+    body.project-page {
+      color: var(--ink);
+      background: var(--bg);
+      font-family: system-ui, sans-serif;
+    }
+
+    /* Header */
+    .project-header {
+      max-width: 1100px;
+      margin: 24px auto 8px;
+      padding: 0 16px;
+      text-align: center;
+    }
+    .project-header h1 {
+      margin: .2rem 0;
+      font-size: 2rem;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+    .project-header h2 {
+      margin: .25rem 0 0;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 1.06rem;
+    }
+
+    /* Sticky nav */
+    .top-nav {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      max-width: 100%;
+      margin: 0 auto 18px;
+      padding: 8px 0;
+    }
+    .top-nav .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .top-nav a {
+      display: inline-block;
+      padding: .42rem .75rem;
+      border: 1px solid var(--accent-soft);
+      border-radius: 999px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .92rem;
+      background: transparent;
+      transition: all .15s ease;
+    }
+    .top-nav a:hover { background: var(--accent-soft); }
+    .top-nav a.is-active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* Content */
+    .project-content { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+    .project-content section { margin: 28px 0; }
+    .project-content h3 { margin: 0 0 .6rem; color: var(--accent); }
+
+    /* Top gallery (merged hero + gallery) */
+    .gallery-slider {
+      position: relative; max-width: 1100px; margin: 0 auto 20px; overflow: hidden; padding: 0 16px;
+    }
+    .gallery-slider .slides {
+      display: flex; transition: transform .5s ease-in-out; will-change: transform;
+    }
+    .gallery-slider figure {
+      min-width: 100%; margin: 0;
+      display: flex; align-items: center; justify-content: center; aspect-ratio: 16/9;
+    }
+    .gallery-slider img {
+      max-width: 100%; max-height: 100%;
+      object-fit: contain; border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    }
+    .gallery-slider .prev,.gallery-slider .next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,.6); color: #fff; border: 0; font-size: 1.8rem;
+      line-height: 1; padding: .35rem .7rem; border-radius: 50%; cursor: pointer; z-index: 2;
+    }
+    .gallery-slider .prev:hover,.gallery-slider .next:hover { background: rgba(0,0,0,.85); }
+    .gallery-slider .prev { left: 28px; } .gallery-slider .next { right: 28px; }
+
+    /* Video */
+    #demo .responsive-video {
+      width: 100%; height: auto;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.5);
+    }
+
+    /* Lists */
+    #skills ul { padding-left: 18px; }
+    #skills li { margin: .42rem 0; }
+
+    /* Footer */
+    .project-footer { text-align: center; margin: 32px 0 40px; }
+
+    @media (prefers-reduced-motion: reduce){
+      .gallery-slider .slides{ transition:none !important; }
+    }
+  </style>
+</head>
+
+<body class="project-page">
+
+  <!-- Header -->
+  <header class="project-header">
+    <h1>Autonomous Mobile Robotic Manipulator</h1>
+    <h2>For Smart Agriculture in Sri Lankan Polytunnels</h2>
+  </header>
+
+  <!-- Nav -->
+  <nav class="top-nav" aria-label="Section navigation">
+    <div class="inner">
+      <a href="#gallery">Gallery</a>
+      <a href="#overview">Overview</a>
+      <a href="#system-overview">System</a>
+      <a href="#demo">Demo</a>
+      <a href="#skills">Skills</a>
+    </div>
+  </nav>
+
+  <!-- Top Gallery (merged with former hero) -->
+  <section id="gallery" aria-label="Project Gallery" tabindex="0" style="margin-top: 0;">
+    <div class="gallery-slider">
+      <button class="prev" aria-label="Previous image">&#10094;</button>
+      <div class="slides">
+        <!-- Former hero image is now the first slide -->
+        <figure><img loading="eager" src="images/hero-robot.jpg" alt="VEXEL prototype in polytunnel"></figure>
+
+        <!-- Existing gallery items -->
+        <figure><img loading="lazy" src="images/gallery1.jpg"  alt="Chassis frame CAD with suspension geometry"></figure>
+        <figure><img loading="lazy" src="images/gallery2.jpg"  alt="Gazebo simulation of base, manipulator, and gimbal"></figure>
+        <figure><img loading="lazy" src="images/gallery3.jpg"  alt="Emulated polytunnel field trial"></figure>
+        <figure><img loading="lazy" src="images/gallery4.jpg"  alt="Manipulator CAD and workspace envelope"></figure>
+        <figure><img loading="lazy" src="images/gallery5.jpg"  alt="NDVI visualization from synchronized RGB–NIR"></figure>
+        <figure><img loading="lazy" src="images/gallery6.jpg"  alt="Dual-nozzle gimbal close-up (swirl atomizer + upward jet)"></figure>
+        <figure><img loading="lazy" src="images/gallery7.jpg"  alt="Electronics bay with Li-ion pack, BMS, and distribution"></figure>
+        <figure><img loading="lazy" src="images/gallery8.jpg"  alt="Operator GUI with telemetry and scan parameters"></figure>
+        <figure><img loading="lazy" src="images/gallery9.jpg"  alt="Autonomous waypoint traversal"></figure>
+        <figure><img loading="lazy" src="images/gallery10.jpg" alt="Prototype integration milestone"></figure>
+      </div>
+      <button class="next" aria-label="Next image">&#10095;</button>
+    </div>
+  </section>
+
+  <main class="project-content">
+
+    <!-- Overview (concise; PhD-ready; includes key highlights) -->
+    <section id="overview" aria-label="Overview">
+      <h3>Overview</h3>
+      <p><strong>VEXEL</strong> is an autonomous mobile manipulator developed to address the precision detection and treatment of crop diseases and pests within confined polytunnels. Conventional spraying approaches often fail to reach the undersides of leaves—where many pests reside—and lack the autonomy to adapt at the plant level. VEXEL overcomes these limitations through a tightly integrated system of mechanical design, perception, and navigation.</p>
+    
+      <p>The platform is built upon a compact four-wheel base with suspension, enabling traversal of uneven terrain and narrow crop rows. A three-degree-of-freedom Cartesian arm, coupled with a dual-axis gimbal, provides the dexterity required to position the end effector accurately within the canopy. The spraying mechanism employs a dual-nozzle configuration consisting of a swirl atomizer and an upward-facing jet, ensuring both adaxial and abaxial coverage of leaves.</p>
+    
+      <p>The perception system combines RGB and near-infrared imaging for NDVI-based stress estimation, alongside machine-learning pipelines for disease classification. Bacterial leaf spot is detected using a Random Forest classifier with Histogram of Oriented Gradient (HOG) features, while mealybug infestations are quantified through robust color segmentation. In validation trials, the system achieved 78% classification accuracy and successfully flagged infestations at canopy coverage levels as low as one percent.</p>
+    
+      <p>Autonomy is enabled by ROS 2, leveraging SLAM Toolbox for real-time mapping and the Nav2 stack for waypoint navigation. This allows the robot to execute precise pause–detect–spray–resume cycles at the plant level, minimizing chemical waste while maximizing treatment efficacy. With a payload capacity of 20 kg, a validated runtime of over thirty minutes, and a suspension capable of handling 5 cm obstacles and ±10° tilt, VEXEL demonstrated reliable performance in full-scale prototype trials within an emulated polytunnel environment.</p>
+    </section>
+    
+
+    <!-- System -->
+    <section id="system-overview" aria-label="System Architecture">
+      <h3>System Architecture</h3>
+      <img src="images/fyp-poster.jpg" alt="System architecture showing base, Cartesian manipulator, gimbal, RGB–NIR pipeline, and ROS 2 control flow" class="responsive-img" />
+    </section>
+
+    <!-- Demo -->
+    <section id="demo" aria-label="Demo Video">
+      <h3>Demo Video</h3>
+      <video controls preload="metadata" class="responsive-video">
+        <source src="videos/fyp-demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <section id="skills" aria-label="Skills Involved">
+      <h3>Skills Involved</h3>
+      <ul>
+        <li>ROS 2 (SLAM Toolbox, Nav2)</li>
+        <li>C++ & Python for real-time control</li>
+        <li>Motion planning & kinematics (3-DoF arm, 2-DoF gimbal)</li>
+        <li>Computer vision & machine learning (NDVI, Random Forest)</li>
+        <li>Multispectral sensing & data fusion (RGB, NIR, LiDAR)</li>
+        <li>System-level design & integration</li>
+        <li>Multibody simulations (Gazebo, RViz, MATLAB/Simulink)</li>
+        <li>Prototyping & validation of full-scale robotic platforms</li>
+      </ul>
+    </section>
+    
+
+  </main>
+
+  <!-- Footer -->
+  <style>
+    /* Footer + Back button (polished) */
+    .project-footer{ text-align:center; margin:36px 0 48px; }
+    .btn-back{
+      display:inline-flex; align-items:center; gap:.55rem;
+      padding:.7rem 1rem; border-radius:12px;
+      color:#fff; text-decoration:none; font-weight:700;
+      background: linear-gradient(135deg, rgba(16,185,129,.28), rgba(16,185,129,.12));
+      border:1px solid rgba(16,185,129,.55);
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+    }
+    .btn-back:hover{ filter:brightness(1.06); transform:translateY(-1px); box-shadow:0 14px 28px rgba(0,0,0,.45); }
+    .btn-back:focus{ outline:2px solid rgba(16,185,129,.8); outline-offset:2px; }
+    .btn-back .arrow{ font-size:1.05rem; line-height:1; }
+  </style>
+  <footer class="project-footer">
+    <a href="index.html" class="btn-back"><span class="arrow">←</span> Back to Home</a>
+  </footer>
+
+  <!-- Smooth scroll + nav highlight + gallery -->
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('.top-nav a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const t=document.querySelector(a.getAttribute('href'));
+        if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+
+    // Active nav highlight
+    (function(){
+      const links=[...document.querySelectorAll('.top-nav a')];
+      const map=new Map(links.map(a=>[a.getAttribute('href'),a]));
+      const io=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          const id='#'+entry.target.id;
+          const link=map.get(id);
+          if(entry.isIntersecting){
+            links.forEach(l=>l.classList.remove('is-active'));
+            if(link) link.classList.add('is-active');
+          }
+        });
+      },{rootMargin:'-40% 0px -55% 0px'});
+      document.querySelectorAll('main section[id], #gallery').forEach(s=>io.observe(s));
+    })();
+
+    // Gallery slider
+    (function(){
+      const gallery=document.querySelector('#gallery');
+      const slides=gallery.querySelector('.slides');
+      const items=Array.from(slides.children);
+      const nextBtn=gallery.querySelector('.next');
+      const prevBtn=gallery.querySelector('.prev');
+      let index=0;
+      function go(i){ index=(i+items.length)%items.length; slides.style.transform=`translateX(-${index*100}%)`; }
+      nextBtn.addEventListener('click',()=>go(index+1));
+      prevBtn.addEventListener('click',()=>go(index-1));
+      // Touch
+      let startX=null;
+      slides.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});
+      slides.addEventListener('touchend',e=>{
+        if(startX==null) return;
+        const dx=e.changedTouches[0].clientX-startX;
+        if(Math.abs(dx)>40) go(index+(dx<0?1:-1));
+        startX=null;
+      });
+    })();
+  </script>
+</body>
+</html>
